@@ -211,6 +211,24 @@ slider.addEventListener('drag', e => {
     }
 });
 
+slider.addEventListener('touchmove', e => {
+
+        slider.style.left = e.touches[0].clientX + 'px';
+        beauty_choice.style.width = e.touches[0].clientX + 'px';
+        if(e.touches[0].clientX < 100 && e.touches[0].clientX != 0 && beast_main_bool == true) {
+            beast_main_bool = false;
+            beast_wrapper.style.display = 'block';
+            beauty_wrapper.style.display = 'none';
+            choices_div.style.display = 'none';
+            beast_functions();
+        }
+        if(e.touches[0].clientX > 1300 && e.touches[0].clientX != 0) {
+            beauty_wrapper.style.display = 'block';
+            beast_wrapper.style.display = 'none';
+            choices_div.style.display = 'none';
+        }
+})
+
 
 slider.addEventListener('dragend', e => {
     slider.style.left = e.clientX + 'px';
