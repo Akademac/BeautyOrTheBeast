@@ -1,0 +1,1157 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+}
+
+
+body {
+}
+
+/* Preloader */
+
+.preloader_div {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+}
+
+.preloader_div_go {
+    animation-name: preloader_div_go;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#preloader_beauty {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0px auto;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    animation-name: go_preloader_beauty;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#preloader_beast {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0px auto;
+    display: block;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    animation-name: go_preloader_beast;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    transform: translate(-50%, -50%) rotateZ(0deg);
+}
+
+#preloader_h1 {
+    text-align: center;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -47%);
+    position: absolute;
+    font-size: 2.5rem;
+    display: none;
+}
+
+/* Choices */
+
+.choices_div {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: none;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.choices_div_go {
+    animation-name: choices_div_go;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.beauty_choice {
+    width: 50%;
+    height: 100%;
+    background: url('Images/beauty_choice_3.jpg');
+    background-position: top;
+    position: absolute;
+    z-index: 1;
+}
+
+.beast_choice {
+    width: 100%;
+    height: 100%;
+    background: url('Images/beast_choice.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+}
+
+.slider {
+    width: 1rem;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: white;
+    position: absolute;
+    padding-left: .25rem;
+    cursor: w-resize;
+    z-index: 2;
+}
+
+.choices_div > h1 {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -45%);
+    font-size: 4rem;
+    z-index: 5;
+    white-space: nowrap;
+}
+
+.beauty_choice_h1 {
+    color: white;
+}
+
+/* Beast Page */
+
+.beauty_wrapper {
+    width: 100%;
+    height: 60rem;
+    background-color: greenyellow;
+    display: none;
+}
+
+.beast_wrapper {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    display: none;
+}
+
+/* #beast_tracker {
+    width: 2rem;
+    height: 2rem;
+    z-index: 1000;
+    position: absolute;
+} */
+
+.beast_btn {
+    background-color: #ff6700;
+    width: 5rem;
+    height: 2rem;
+    color: white;
+    margin-top: 2rem;
+    padding: 3px;
+    display: block;
+    text-align: center;
+    transition: 2s all;
+    z-index: 5000;
+}
+
+.beast_btn:hover {
+    cursor: pointer;
+    color: #ff6700;
+    background-color: white;
+}
+
+.beast_td_btn {
+    margin: 2rem auto;
+}
+
+.beast_fd_btn {
+    margin: -4rem auto;
+}
+
+h2 >.beast_fid_btn {
+    float: right;
+    font-size: 1rem;
+    margin-right: 3rem;
+    margin-top: 3rem;
+}
+
+#beast_tracker > img {
+    width: 100%;
+    height: 100%;
+}
+
+.beast_main_div {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 2px;
+}
+
+.beast_main_div > div:nth-child(1) {
+    background: url("Images/beast_animals_main_2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.beast_main_div > div:nth-child(2) {
+    background: url("Images/beast_forest_main_2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.beast_main_div > div:nth-child(3) {
+    background: url("Images/beast_ocean_main_2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.beast_main_div > div:nth-child(4) {
+    background: url("Images/beast_air_main.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.beast_h1 {
+    font-size: 10rem;
+    letter-spacing: 20px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    color: white;
+    animation-name: beast_main_h1_go;
+    animation-duration: 2;
+    animation-delay: 2.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.beast_main_divs {
+    opacity: 0;
+}
+
+.beast_main_active {
+    animation-name: beast_main_go;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+/* Beast second Div */
+
+.beast_second_div {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: url('Images/beast_second_div.jpg');
+    background-position: center;
+}
+
+.beast_sd_first {
+    width: 2%;
+    height: 100%;
+    background-color: white;
+    clip-path: polygon(0 0, 100% 20%, 0% 100%, 0% 100%);
+    opacity: .8;
+    z-index: -2000;
+}
+
+.beast_sd_first_go {
+    animation-name: beast_sd_first_go;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.second_div_txt {
+    padding: 3rem;  
+    margin-left: 3rem;
+}
+
+.second_div_txt > h2 {
+    margin-top: 5rem;
+    font-size: 3rem;
+    letter-spacing: 7px;
+}
+
+.second_div_txt > p {
+    width: 30rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.beast_sd_imgs {
+    width: 20rem;
+    height: auto;
+    position: absolute;
+    right: 5rem;
+    top: 15rem;
+    opacity: 1;
+}
+
+.beast_sd_imgs_go {
+    animation-name: beast_sd_imgs_go;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.beast_sd_imgs {
+    background-color: black;
+}
+
+.beast_sd_imgs > img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+hr {
+    margin: 2rem;
+}
+
+/* Beast Third Div */
+
+.beast_third_div {
+    width: 100%;
+    height: 60rem;
+}
+
+.beast_td_top {
+    width: 100%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.beast_td_top > div:nth-child(1) {
+    background: url('Images/deforestation/beast_good_f/forest_1.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.beast_td_top > div:nth-child(2) {
+    background: url('Images/deforestation/beast_good_f/forest_2.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.beast_td_top > div:nth-child(3) {
+    background: url('Images/deforestation/beast_good_f/forest_3.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.beast_td_top > div:nth-child(4) {
+    background: url('Images/deforestation/beast_good_f/forest_4.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.beast_td_top > div:nth-child(5) {
+    background: url('Images/deforestation/beast_good_f/forest_5.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.beast_td_tops_layer {
+    position: absolute;
+    width: 100%;
+    height: 1%;
+    z-index: 10;
+}
+
+.beast_td_tops_layer_go {
+    animation-name: beast_td_tops_layer;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.beast_td_t_l_1 {
+    background: url('Images/deforestation/beast_good_f/beast_tool_1.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.beast_td_t_l_2 {
+    animation-delay: 1s;
+    background: url('Images/deforestation/beast_good_f/beast_tool_2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.beast_td_t_l_3 {
+    animation-delay: 2s;
+    background: url('Images/deforestation/beast_good_f/beast_tool_3.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.beast_td_t_l_4 {
+    animation-delay: 3s;
+    background: url('Images/deforestation/beast_good_f/beast_tool_4.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.beast_td_t_l_5 {
+    animation-delay: 4s;
+    background: url('Images/deforestation/beast_good_f/beast_tool_5.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+
+.beast_td_center {
+    width: 100%;
+    height: 60%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.beast_td_c_left {
+    background: url('Images/deforestation/beast_centar_left_3.png');
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.beast_td_c_right {
+    text-align: center;
+    opacity: .7;
+}
+
+.beast_td_c_right > h2 {
+    font-size: 3rem;
+    margin-top: 4rem;
+}
+
+.beast_td_c_right > p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.beast_td_c_right > h3 {
+    margin-top: 2rem;
+    font-size: 2rem;
+} 
+
+.beast_td_bottom {
+    width: 100%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.beast_td_bottom > div:nth-child(1) {
+    background: url('Images/deforestation/deforest_1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.beast_td_bottom > div:nth-child(2) {
+    background: url('Images/deforestation/deforest_2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.beast_td_bottom > div:nth-child(3) {
+    background: url('Images/deforestation/deforest_3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.beast_td_bottom > div:nth-child(4) {
+    background: url('Images/deforestation/deforest_4.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.beast_td_bottom > div:nth-child(5) {
+    background: url('Images/deforestation/deforest_5.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Beast Fourth Div */
+
+#beast_video_div {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#beast_video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    position: absolute;
+}
+
+.beast_overlay_video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    text-align: center;
+}
+
+.beast_overlay_video > h3 {
+    color: white;
+    width: 60%;
+    text-align: center;
+    font-size: 2rem;
+    margin: 10rem auto;
+}
+
+/* Beast Fifth Div */
+
+#fifth_div_scroll {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+}
+
+.beast_fifth_div {
+    width: 100%;
+    height: 100vh;
+    background: url('Images/beast_air_poll_2.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.beast_fifth_txt {
+    height: 100%;
+    width: 0%;
+    background-color: rgba(0, 0, 0, 0.8);
+    clip-path: polygon(100% 0, 100% 100%, 100% 100%, 0 50%);
+    z-index: 1000;
+}
+
+.beast_fifth_txt_go {
+    animation-name: beast_fifth_txt_go;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.beast_fifth_txt > h2 {
+    float: right;
+    color: white;
+    margin-top: 12rem;
+    width: 50%
+}
+
+/* Beast Sixth Div */
+
+#beast_sixth_div {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#beast_final {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+#overlay_final {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white
+}
+
+.overlay_final_h2 {
+    font-size: 5rem;
+    opacity: 1;
+}
+
+.overlay_final_h2_go {
+    animation-name: overlay_final_h2_go;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+/* Footer */
+
+#footer {
+    width: 100%;
+    height: 5rem;
+    background-color: black;
+    position: relative;
+    text-align: center;
+}
+
+#footer > p {
+    margin: 1rem auto;
+    color: white;
+}
+
+
+
+
+                                                    /* Keyframes */
+
+@keyframes go_preloader_beast {
+    0% {
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(0deg);
+        opacity: 0;
+    }
+
+    100% {
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes go_preloader_beauty {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes preloader_div_go {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes choices_div_go {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes beast_main_go {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes beast_main_h1_go {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes beast_sd_first_go {
+    0% {
+        width: 10%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes beast_sd_imgs_go {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .5;
+    }
+}
+
+@keyframes beast_td_tops_layer {
+    0% {
+        height: 1%;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes overlay_final_h2_go {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .3;
+    }
+}
+
+@keyframes beast_fifth_txt_go {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+
+                                                    /* Media queris */
+
+@media screen and (max-width: 1050px) {
+
+    /* Choices */
+
+    .choices_div > h1 {
+        font-size: 3rem;
+    }
+
+    /* Beast Second Div */
+
+    .second_div_txt {
+        padding-top: 1rem;
+        padding-left: 1rem;  
+        margin-left: 0rem;
+    }    
+ 
+    .second_div_txt > h2 {
+        margin-top: 5rem;
+        font-size: 2rem;
+        letter-spacing: 7px;
+    }
+    
+    .second_div_txt > p {
+        width: 20rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    /* Beast Third Div */
+
+    .beast_third_div {
+        width: 100%;
+    }
+
+    .beast_td_center {
+        grid-template-columns: none;
+    }
+
+    .beast_td_c_left {
+        display: none;
+    }
+
+    .beast_td_c_right {
+        text-align: center;
+        opacity: .7;
+        margin-top: 2rem;
+    }
+
+    /* Beast Fourth Div */
+
+    .beast_fd_btn {
+        margin: -6rem auto;
+    }
+
+    /* Beast Fifth Div */
+
+    .beast_fifth_txt > h2 {
+        margin-top: 12rem;
+        width: 50%;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 950px) {
+
+    /* Beast Fourth Div */
+
+    .beast_overlay_video > h3 {
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 7rem auto;
+    }
+    
+    .beast_fd_btn {
+         margin: -1rem auto;
+    }
+
+    /* Beast Sixth Div */
+
+    .overlay_final_h2 {
+        font-size: 4rem;
+        opacity: 1;
+    }
+}
+
+
+
+@media screen and (max-width: 785px) {
+
+    /* Choices */
+
+    .choices_div > h1 {
+        font-size: 2rem;
+    }
+
+    /* Beast Second Div imgs */
+
+    .beast_sd_imgs {
+        right: 5rem;
+        top: 20rem;
+    }
+
+    /* Beast Fifth Div */
+
+    h2 >.beast_fid_btn {
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    
+    /* Third Div Txt */
+
+    .beast_td_c_right > h2 {
+        font-size: 3rem;
+        margin-top: 3rem;
+    }
+    
+    .beast_td_c_right > p {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .beast_td_c_right > h3 {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    /* Beast Sixth Div */
+
+    .overlay_final_h2 {
+        font-size: 3rem;
+        opacity: 1;
+    }    
+}
+
+@media screen and (max-width: 600px) {
+
+    /* Preloader */
+    
+    #preloader_h1 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+    }
+
+    /* Beast Main Div */
+
+    .beast_h1 {
+        font-size: 6rem;
+        letter-spacing: 10px;
+    }
+
+    /* Beast Second Div imgs */
+
+    .beast_sd_imgs {
+        right: 2rem;
+        top: 22rem;
+    }
+
+    /* Beast Fourth Div */
+
+    .beast_overlay_video > h3 {
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 7rem auto;
+    }
+    
+    .beast_fd_btn {
+         margin: -3rem auto;
+    }
+
+    /* Beast Fifth Div */
+
+    .beast_fifth_txt > h2 {
+        margin-top: 10rem;
+        font-size: 1rem;
+    }    
+
+}
+
+@media screen and (max-width: 500px) {
+
+    /* Beast Second Div */
+ 
+    .second_div_txt > h2 {
+        margin-top: 5rem;
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    /* Beast Fourth Div */
+
+    .beast_overlay_video > h3 {
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 5rem auto;
+    }
+    
+    .beast_fd_btn {
+         margin: -3rem auto;
+    }   
+    
+    /* Beast Fifth Div */
+
+    .beast_fifth_txt > h2 {
+        margin-top: 13rem;
+        font-size: .8rem;
+    }
+    
+    h2 >.beast_fid_btn {
+        margin-right: 1rem;
+    }
+
+    /* Beast Sixth Div */
+
+    .overlay_final_h2 {
+        font-size: 3.5rem;
+        opacity: 1;
+    }    
+}
+
+@media screen and (max-width: 430px) {
+
+    /* Beast Second Div */
+    
+    .second_div_txt {
+        padding-left: .5rem;  
+        margin-left: .2rem;
+    }
+
+    .second_div_txt > p {
+        width: 10rem;
+        margin-top: 1rem;
+    }
+
+    /* Beast Second Div imgs */
+
+    .beast_sd_imgs {
+        right: 1rem;
+        top: 25rem;
+        width: 15rem;
+        height: auto;
+    }
+
+    /* Third Div Txt */
+
+    .beast_td_c_right > h2 {
+        font-size: 2rem;
+        margin-top: 5rem;
+    }
+        
+    .beast_td_c_right > p {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+        
+    .beast_td_c_right > h3 {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+    }
+
+    /* Beast Fourth Div */
+
+    .beast_overlay_video > h3 {
+        color: white;
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 10rem auto;
+    }
+    
+    .beast_fd_btn {
+         margin: -7rem auto;
+    }   
+        
+    /* Beast Fifth Div */
+
+    .beast_fifth_txt > h2 {
+        margin-top: 14rem;
+        font-size: .8rem;
+    }
+    
+    h2 >.beast_fid_btn {
+        margin-top: 2rem;
+        margin-right: 1rem;
+    }    
+}
+
+@media screen and (max-width: 385px) {
+
+    /* Beast Second Div */
+
+    .second_div_txt > h2 {
+        margin-top: 4.5rem;
+        font-size: 1.2rem;
+        letter-spacing: 0px;
+    }
+
+    .second_div_txt > p {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+    
+    /* Beast Second Div imgs */
+
+    .beast_sd_imgs {
+        right: 1rem;
+        top: 25.4rem;
+        width: 12rem;
+        height: auto;
+    }
+
+    /* Beast Fifth Div */
+
+    .beast_fifth_txt > h2 {
+        margin-top: 12rem;
+        font-size: .8rem;
+    }    
+
+    /* Beast Sixth Div */
+
+    .overlay_final_h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 330px) {
+
+    /* Beast Fourth Div */
+
+    .beast_overlay_video > h3 {
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 5rem auto;
+    }
+    
+    .beast_fd_btn {
+         margin: -3rem auto;
+    }
+
+    /* Beast Fifth Div */
+
+    .beast_fifth_txt > h2 {
+        margin-top: 11rem;
+        font-size: .7rem;
+    }
+    
+    h2 >.beast_fid_btn {
+        margin-top: 2rem;
+        margin-right: 1rem;
+    }   
+}
+
+@media screen and (max-width: 300px) {
+
+    /* Beast Second Div imgs */
+
+    .beast_sd_imgs {
+        right: 1rem;
+        top: 25.4rem;
+        width: 10rem;
+        height: auto;
+    }
+
+    /* Beast Fourth Div */
+
+    .beast_overlay_video > h3 {
+        text-align: center;
+        font-size: 1rem;
+        margin: 7rem auto;
+    }
+    
+    .beast_fd_btn {
+         margin: -5rem auto;
+    }
+             
+    /* Beast Fifth Div */
+
+    .beast_fifth_txt > h2 {
+        margin-top: 11rem;
+        font-size: .7rem;
+    }
+    
+    h2 >.beast_fid_btn {
+        margin-top: 1rem;
+        margin-right: 1rem;
+    }  
+}
+
+@media screen and (max-width: 280px) {
+
+    /* Beast Second Div imgs */
+
+    .beast_sd_imgs {
+        right: 1rem;
+        top: 25.4rem;
+        width: 8rem;
+        height: auto;
+    }
+
+    /* Beast Sixth Div */
+
+    .overlay_final_h2 {
+        font-size: 1.5rem;
+    }
+    
+}
