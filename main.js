@@ -26,6 +26,7 @@ setTimeout(() => {
 }, 9000);
 
 
+
 //slider 
 
 let slider = document.querySelector('.slider');
@@ -37,6 +38,51 @@ let beast_wrapper = document.querySelector('.beast_wrapper');
 //=========
     //    Not working on Firefoks, solve that
 //=========
+
+let clientwidth =document.documentElement.clientWidth - 10;
+let justOnce = true;
+
+slider.addEventListener('drag', e => {
+    // e.dataTransfer.setData('Text', this.id);
+
+    slider.style.left = e.clientX + 'px';
+    beauty_choice.style.width = e.clientX + 'px';
+    
+    if(e.clientX < 10 && e.clientX != 0 && beast_main_bool == true) {
+        beast_main_bool = false;
+        beast_wrapper.style.display = 'block';
+        beauty_wrapper.style.display = 'none';
+        choices_div.style.display = 'none';
+        beast_functions();
+    }
+    if(e.clientX > clientwidth && e.clientX != 0) {
+        beauty_wrapper.style.display = 'block';
+        beast_wrapper.style.display = 'none';
+        choices_div.style.display = 'none';
+        if(justOnce == true) {
+            beauty_functions();
+        }
+    }
+});
+
+slider.addEventListener('touchmove', e => {
+
+    slider.style.left = e.touches[0].clientX + 'px';
+    beauty_choice.style.width = e.touches[0].clientX + 'px';
+    if(e.touches[0].clientX < 10 && e.touches[0].clientX != 0 && beast_main_bool == true) {
+        beast_main_bool = false;
+        beast_wrapper.style.display = 'block';
+        beauty_wrapper.style.display = 'none';
+        choices_div.style.display = 'none';
+        beast_functions();
+    }
+
+    if(e.touches[0].clientX > clientwidth && e.touches[0].clientX != 0) {
+        beauty_wrapper.style.display = 'block';
+        beast_wrapper.style.display = 'none';
+        choices_div.style.display = 'none';
+    }
+})
 
 //beast 
 
@@ -135,7 +181,6 @@ let beast_functions = () => {
         }
 
         if(isInViewport(beast_td_c_left) == true) {
-            console.log('Third!');
             beast_td_c_left.style.background = "url('Images/deforestation/beast_centar_left_2.png')";
             beast_td_c_left.style.backgroundPosition = 'center';
             beast_td_c_left.style.backgroundSize = 'contain';
@@ -184,62 +229,47 @@ beast_btn.forEach(e => {
     })
 })
 
+
+
 // beast_wrapper.addEventListener('mousemove', e => {
 //     beast_tracker.style.left = e.clientX + 'px';
 //     beast_tracker.style.top = e.clientY + 'px';
 // });
 
+//beauty
 
+let beauty_main_video = document.querySelector('#beauty_main_video');
+let beauty_main_h1 = document.querySelector('#beauty_main_h1');
+let beauty_main_bool = true;
+let beauty_main_div = document.querySelector('.beauty_main_div');
+let beauty_main_line = document.querySelector('.beauty_main_line');
+let beauty_main_txt = document.querySelector('.beauty_main_txt');
+let beauty_main_x = 0;
+let beauty_main_y = 100;
 
-slider.addEventListener('drag', e => {
-    // e.dataTransfer.setData('Text', this.id);
-    console.log('Draged');
+let beauty_functions = () => {
+    justOnce = false;
+    beauty_main_video.play();
+    console.log('Beauty Page!');
+    document.addEventListener('wheel', e => {
+        beauty_main_h1.innerHTML = "Earth";
 
-    slider.style.left = e.clientX + 'px';
-    beauty_choice.style.width = e.clientX + 'px';
-    if(e.clientX < 100 && e.clientX != 0 && beast_main_bool == true) {
-        beast_main_bool = false;
-        beast_wrapper.style.display = 'block';
-        beauty_wrapper.style.display = 'none';
-        choices_div.style.display = 'none';
-        beast_functions();
-    }
-    if(e.clientX > 1300 && e.clientX != 0) {
-        beauty_wrapper.style.display = 'block';
-        beast_wrapper.style.display = 'none';
-        choices_div.style.display = 'none';
-    }
-});
-
-slider.addEventListener('touchmove', e => {
-
-        slider.style.left = e.touches[0].clientX + 'px';
-        beauty_choice.style.width = e.touches[0].clientX + 'px';
-        if(e.touches[0].clientX < 100 && e.touches[0].clientX != 0 && beast_main_bool == true) {
-            beast_main_bool = false;
-            beast_wrapper.style.display = 'block';
-            beauty_wrapper.style.display = 'none';
-            choices_div.style.display = 'none';
-            beast_functions();
+        if(e.deltaY == 100) {
+            beauty_main_x = beauty_main_x + 1;
+            beauty_main_line.style.height = beauty_main_x + 'rem';
         }
-        if(e.touches[0].clientX > 1300 && e.touches[0].clientX != 0) {
-            beauty_wrapper.style.display = 'block';
-            beast_wrapper.style.display = 'none';
-            choices_div.style.display = 'none';
+        if(beauty_main_x > 20) {
+            beauty_main_y = beauty_main_y - 5;
+            beauty_main_txt.style.top = beauty_main_y + 'rem';
+            if(e.deltaY == 100) {
+                beauty_main_x = beauty_main_x - 1;
+                beauty_main_line.style.height = beauty_main_x + 'rem';
+            }
+            
         }
-})
-
-
-slider.addEventListener('dragend', e => {
-    slider.style.left = e.clientX + 'px';
-    beauty_choice.style.width = e.clientX + 'px';
-    if(e.clientX > 1300) {
-        beauty_wrapper.style.display = 'block';
-        beast_wrapper.style.display = 'none';
-        choices_div.style.display = 'none';
-    }
-});
-
+        console.log(e.deltaY);
+    })
+};
 
 
 
